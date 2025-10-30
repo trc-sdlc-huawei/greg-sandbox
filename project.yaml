@@ -1,3 +1,4 @@
+apiVersion: projectman.codearts.crossplane.io/v1alpha1
 kind: Project
 metadata:
   name: example-project

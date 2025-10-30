@@ -1,1 +1,16 @@
-
+apiVersion: projectman.codearts.crossplane.io/v1alpha1
+kind: Endpoint
+metadata:
+  name: example-endpoint-k8s
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    name: example-endpoint-k8s
+    type: kubernetes
+    authorization:
+      url: "https://a.com"
+      kubernetesCreds:
+        kubeconfig:
+          name: k8s-creds
+          key: kubeconfig

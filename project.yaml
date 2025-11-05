@@ -1,1 +1,10 @@
+apiVersion: projectman.codearts.crossplane.io/v1alpha1
+kind: Project
+metadata:
+  name: example-project
+spec:
+  forProvider:
+    projectName: example-project
+    projectType: scrum
+    description: "example project managed by crossplane"
 

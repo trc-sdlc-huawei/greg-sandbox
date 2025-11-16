@@ -1,24 +1,24 @@
-apiVersion: pipeline.codearts.crossplane.io/v1alpha1
-kind: Microservice
-metadata:
-  name: example-microservice
-spec:
-  forProvider:
-    projectIdRef:
-      name: example-project
-    microserviceName: example_microservice
-    repos:
-      - type: codehub
-        repoIdRef:
-          name: example-repo
+#apiVersion: pipeline.codearts.crossplane.io/v1alpha1
+#kind: Microservice
+#metadata:
+#  name: example-microservice
+#spec:
+#  forProvider:
+#    projectIdRef:
+#      name: example-project
+#    microserviceName: example_microservice
+#    repos:
+#      - type: codehub
+#        repoIdRef:
+#          name: example-repo
 
-        branch: master
-        language: java
-        endpointIdRef:
-          name: example-endpoint-codehub
+#        branch: master
+#        language: java
+#        endpointIdRef:
+#          name: example-endpoint-codehub
 
         # optional, if repoIdRef is not specified, httpUrl and gitUrl are required
         # httpUrl: "https://codehub.devcloud.cn-north-7.ulanqab.huawei.com/7bff1301aec7471db147f1c749378f25/example-crossplane-repo.git"
         # gitUrl: "git@codehub.devcloud.cn-north-7.ulanqab.huawei.com:7bff1301aec7471db147f1c749378f25/example-crossplane-repo.git"
 
-    desc: example microservice
+#    desc: example microservice

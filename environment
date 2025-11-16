@@ -1,0 +1,14 @@
+kind: Environment
+metadata:
+  name: greg-environment
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    environmentName: greg-environment
+    resourceType: K8S
+    environmentCategoryType: DEVELOPMENT
+    endpointName: example-endpoint-k8s
+    endpointIdRef:
+      name: example-endpoint-k8s
+    description: "example development environment"

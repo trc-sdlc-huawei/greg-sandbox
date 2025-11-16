@@ -1,0 +1,45 @@
+kind: DeploymentConfig
+metadata:
+  name: example-deployment-config
+  labels:
+    deploymentconfig: "example-deployment-config"
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    componentIdRef:
+      name: example-microservice
+    deploymentConfigName: helm
+    version: 0
+    description: a helm deployment config
+    deploymentManifest:
+      deployer: gitops
+      deployerManifest:
+        api: v1
+        common:
+          serviceEndpointRef:
+            name: example-endpoint-codehub
+          revision: main
+          repoIdRef:
+            name: gitops
+
+          # optional, if repoIdRef is not specified, url is required
+          # url: "https://codehub.devcloud.cn-north-7.ulanqab.huawei.com/7bff1301aec7471db147f1c749378f25/example-crossplane-repo.git"
+
+          gitType: codehub
+        sourceConfig:
+          path: "./helm-chart/"
+        helmValues:
+          valueFiles:
+            - "values.common.yaml"
+          parameters:
+            - key: "image.tag"
+              value: "master"
+            - key: "image.repository"
+              value: "swr.cn-southwest-2.myhuaweicloud.com/example-org/example-image"
+        artifactType: helm
+        artifactSource: git
+        clusterConfig:
+          namespace: default
+        syncPolicy:
+          selfHeal: false

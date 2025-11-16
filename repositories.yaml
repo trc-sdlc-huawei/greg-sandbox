@@ -1,0 +1,24 @@
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: example-repo
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    name: example_repo
+    description: "example repository containing source code for example"
+    enableReadme: 1
+---
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: gitops
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    name: gitops
+    description: "gitops repository containing helm charts for gitops deployment"
+    enableReadme: 1
+    visibilityLevel: 20

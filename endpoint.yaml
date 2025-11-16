@@ -1,9 +1,16 @@
 apiVersion: projectman.codearts.crossplane.io/v1alpha1
-kind: Project
+kind: Endpoint
 metadata:
-  name: example-project
+  name: example-endpoint-k8s
 spec:
   forProvider:
-    projectName: example-project
-    projectType: scrum
-    description: "example project managed by crossplane"
+    projectIdRef:
+      name: example-project
+    name: example-endpoint-k8s
+    type: kubernetes
+    authorization:
+      url: "https://a.com"
+      kubernetesCreds:
+        kubeconfig:
+          name: k8s-creds
+          key: kubeconfig

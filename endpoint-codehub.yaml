@@ -1,0 +1,19 @@
+apiVersion: projectman.codearts.crossplane.io/v1alpha1
+kind: Endpoint
+metadata:
+  name: example-endpoint-codehub
+spec:
+  forProvider:
+    projectIdRef:
+      name: example-project
+    name: example-endpoint-codehub
+    type: codehub
+    authorization:
+      url: "https://codehub.devcloud.ap-southeast-3.huaweicloud.com"  # or for beta: "https://codehub.devcloud.cn-north-7.ulanqab.huawei.com"
+      codehubCreds:
+        usernameRef:
+          name: codearts-secret
+          key: username
+        passwordRef:
+          name: codearts-secret
+          key: password
